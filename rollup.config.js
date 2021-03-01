@@ -12,7 +12,7 @@ const outputs = {
             file: 'dist/index.cjs.js',
             format: 'cjs',
             sourcemap: options.sourceMapsEnabled,
-            exports: 'named',
+            exports: 'auto',
             plugins: [],
         },
         {
