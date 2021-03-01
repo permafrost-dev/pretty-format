@@ -415,3 +415,26 @@ Object {
 }
 */
 ```
+
+## Testing
+
+`node-ray` uses Jest for unit tests.  To run the test suite:
+
+`npm run test`
+
+---
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+
+## Credits
+
+- James Kyle <me@thejameskyle.com>
+- [Patrick Organ](https://github.com/patinthehat)
+- [All Contributors](../../contributors)
+
