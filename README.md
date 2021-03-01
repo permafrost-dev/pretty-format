@@ -2,6 +2,10 @@
 
 ---
 
+<p align="center">
+    <img src="https://shields.io/npm/v/@permafrost-dev/prettier-format" alt="npm version"> <img src="https://github.com/permafrost-dev/prettier-format/workflows/Run%20Tests/badge.svg" alt="test status"> <img src="https://codecov.io/gh/permafrost-dev/prettier-format/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+</p>
+
 This package originally comes from the `jest` package _(27.0.0-next.3)_.  It is located under `packages/pretty-format`.
 
 The original package author was James Kyle <me@thejameskyle.com>.
