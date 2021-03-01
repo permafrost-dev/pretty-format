@@ -5,7 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/* eslint-disable local/prefer-rest-params-eventually */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-rest-params */
 
 import prettyFormat from '../src';
 
@@ -15,18 +18,18 @@ function returnArguments(..._args: Array<unknown>) {
 
 class MyArray<T> extends Array<T> {}
 
-class MyObject {
-    public name: any;
+// class MyObject {
+//     public name: any;
 
-    constructor(value: any) {
-        this.name = value;
-    }
-}
-
-// function MyObject(value: unknown) {
-//     // @ ts-expect-error
-//     this.name = value;
+//     constructor(value: any) {
+//         this.name = value;
+//     }
 // }
+
+function MyObject(value: unknown) {
+    // @ts-ignore
+    this.name = value;
+}
 
 describe('prettyFormat()', () => {
     it('prints empty arguments', () => {

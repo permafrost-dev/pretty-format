@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "module": "es2015",
     // Object.fromEntries
     "lib": ["dom", "esnext", "es2019.object"],
@@ -25,7 +25,7 @@
     /* Module Resolution Options */
     "moduleResolution": "node",
     /* This needs to be false so our types are possible to consume without setting this */
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
 
     "rootDir": "src",

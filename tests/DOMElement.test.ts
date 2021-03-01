@@ -7,9 +7,11 @@
  * @jest-environment jsdom
  */
 
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-env browser*/
+// @ts-nocheck
 
 /* global this */
 
