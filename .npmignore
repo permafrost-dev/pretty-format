@@ -18,4 +18,6 @@ tsconfig.tsbuildinfo
 .prettierrc
 jest.config.js
 package-lock.json
+rollup.config.js
 *.ignore
+
