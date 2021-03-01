@@ -3,7 +3,7 @@
 ---
 
 <p align="center">
-    <img src="https://shields.io/npm/v/@permafrost-dev/prettier-format" alt="npm version"> <img src="https://github.com/permafrost-dev/pretty-format/actions/workflows/run-tests.yml/badge.svg" alt="test status"> <img src="https://codecov.io/gh/permafrost-dev/prettier-format/branch/main/graph/badge.svg?token=YW2BTKSNEO"/>
+    <img src="https://shields.io/npm/v/@permafrost-dev/pretty-format" alt="npm version"> <img src="https://github.com/permafrost-dev/pretty-format/actions/workflows/run-tests.yml/badge.svg" alt="test status"> <img src="https://codecov.io/gh/permafrost-dev/pretty-format/branch/main/graph/badge.svg?token=FS0MGVSMUE"/>
 </p>
 
 This package originally comes from the `jest` package _(27.0.0-next.3)_.  It is located under `packages/pretty-format`.
