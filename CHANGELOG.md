@@ -4,7 +4,7 @@ All notable changes to `permafrost-dev/prettier-format` will be documented in th
 
 ---
 
-## 1.0.1 - 2021-03-01
+## 1.1.0 - 2021-03-01
 
 - fix typescript definition
 
