@@ -1,0 +1,15 @@
+/build/*.js
+!/build/test.js
+
+/.vscode
+/node_modules
+/dist
+/coverage
+
+package-lock.json
+yarn.lock
+
+generate-from-ray-php-src.sh
+_ray_notes.txt
+
+*.ignore
