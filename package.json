@@ -26,7 +26,9 @@
   "scripts": {
     "test": "./node_modules/.bin/jest tests --verbose",
     "test:coverage": "./node_modules/.bin/jest tests --coverage",
-    "build": "rollup --config rollup.config.js"
+    "build": "npm run build:prod && npm run build:dts",
+    "build:prod": "rollup --config rollup.config.js",
+    "build:dts": "./node_modules/.bin/dts-bundle-generator -o ./dist/index.d.ts ./src/types.ts"
   },
   "dependencies": {
     "ansi-regex": "^5.0.0",
@@ -39,6 +41,7 @@
     "@types/jest": "^26.0.20",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
+    "dts-bundle-generator": "^5.7.0",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
