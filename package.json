@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "ansi-regex": "^5.0.0",
-    "ansi-styles": "^5.0.0"
+    "ansi-styles": "^6.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^18.0.0",
