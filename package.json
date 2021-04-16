@@ -31,7 +31,7 @@
     "build:dts": "./node_modules/.bin/dts-bundle-generator -o ./dist/index.d.ts ./src/types.ts"
   },
   "dependencies": {
-    "ansi-regex": "^5.0.0",
+    "ansi-regex": "^6.0.0",
     "ansi-styles": "^5.0.0"
   },
   "devDependencies": {
