@@ -20,9 +20,7 @@ const ELEMENT_REGEXP = /^((HTML|SVG)\w*)?Element$/;
 const testNode = (val: any) => {
     const constructorName = val.constructor.name;
     const { nodeType, tagName } = val;
-    const isCustomElement =
-        (typeof tagName === 'string' && tagName.includes('-')) ||
-        (typeof val.hasAttribute === 'function' && val.hasAttribute('is'));
+    const isCustomElement = (typeof tagName === 'string' && tagName.includes('-')) || (typeof val.hasAttribute === 'function' && val.hasAttribute('is'));
 
     return (
         (nodeType === ELEMENT_NODE && (ELEMENT_REGEXP.test(constructorName) || isCustomElement)) ||
@@ -48,14 +46,7 @@ function nodeIsFragment(node: HandledType): node is DocumentFragment {
     return node.nodeType === FRAGMENT_NODE;
 }
 
-export const serialize: NewPlugin['serialize'] = (
-    node: HandledType,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    printer: Printer
-) => {
+export const serialize: NewPlugin['serialize'] = (node: HandledType, config: Config, indentation: string, depth: number, refs: Refs, printer: Printer) => {
     if (nodeIsText(node)) {
         return printText(node.data, config);
     }
@@ -88,18 +79,11 @@ export const serialize: NewPlugin['serialize'] = (
             indentation + config.indent,
             depth,
             refs,
-            printer
+            printer,
         ),
-        printChildren(
-            Array.prototype.slice.call(node.childNodes || node.children),
-            config,
-            indentation + config.indent,
-            depth,
-            refs,
-            printer
-        ),
+        printChildren(Array.prototype.slice.call(node.childNodes || node.children), config, indentation + config.indent, depth, refs, printer),
         config,
-        indentation
+        indentation,
     );
 };
 

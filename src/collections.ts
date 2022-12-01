@@ -37,7 +37,7 @@ export function printIteratorEntries(
     // Too bad, so sad that separator for ECMAScript Map has been ' => '
     // What a distracting diff if you change a data structure to/from
     // ECMAScript Object or Immutable.Map/OrderedMap which use the default.
-    separator = ': '
+    separator = ': ',
 ): string {
     let result = '';
     let current = iterator.next();
@@ -79,7 +79,7 @@ export function printIteratorValues(
     indentation: string,
     depth: number,
     refs: Refs,
-    printer: Printer
+    printer: Printer,
 ): string {
     let result = '';
     let current = iterator.next();
@@ -112,14 +112,7 @@ export function printIteratorValues(
  * with spacing, indentation, and comma
  * without surrounding punctuation (for example, brackets)
  **/
-export function printListItems(
-    list: ArrayLike<unknown>,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    printer: Printer
-): string {
+export function printListItems(list: ArrayLike<unknown>, config: Config, indentation: string, depth: number, refs: Refs, printer: Printer): string {
     let result = '';
 
     if (list.length) {
@@ -154,7 +147,7 @@ export function printObjectProperties(
     indentation: string,
     depth: number,
     refs: Refs,
-    printer: Printer
+    printer: Printer,
 ): string {
     let result = '';
     const keys = getKeysOfEnumerableProperties(val);
