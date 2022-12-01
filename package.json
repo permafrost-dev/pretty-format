@@ -1,6 +1,6 @@
 {
   "name": "@permafrost-dev/pretty-format",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Stringify any JavaScript value.",
   "license": "MIT",
   "author": "Patrick Organ <patrick@permafrost.dev>",
