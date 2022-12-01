@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
  *
@@ -5,7 +6,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ansiStyle = require('ansi-styles');
+import ansiStyle from 'ansi-styles';
 import prettyFormat, { plugins } from '../src';
 
 const { ConvertAnsi } = plugins;

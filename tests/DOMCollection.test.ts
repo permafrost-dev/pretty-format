@@ -6,8 +6,11 @@
  *
  * @jest-environment jsdom
  */
-/* eslint-env browser*/
+/**
+ * @jest-environment jsdom
+ */
 
+/* eslint-disable no-undef */
 import { plugins } from '../src';
 import setPrettyPrint from './setPrettyPrint';
 
@@ -113,7 +116,7 @@ describe('DOMCollection plugin for list items', () => {
     // When Jest upgrades to a version of jsdom later than 12.2.0,
     // the class name might become HTMLFormControlsCollection
     const expectedHTMLFormControlsCollection = [
-        'HTMLCollection [',
+        'HTMLFormControlsCollection [',
         '  <select>',
         '    <option',
         '      value="1"',

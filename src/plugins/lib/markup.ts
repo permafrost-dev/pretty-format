@@ -16,7 +16,7 @@ export const printProps = (
     indentation: string,
     depth: number,
     refs: Refs,
-    printer: Printer
+    printer: Printer,
 ): string => {
     const indentationNext = indentation + config.indent;
     const colors = config.colors;
@@ -32,36 +32,19 @@ export const printProps = (
                 printed = '{' + printed + '}';
             }
 
-            return (
-                config.spacingInner +
-                indentation +
-                colors.prop.open +
-                key +
-                colors.prop.close +
-                '=' +
-                colors.value.open +
-                printed +
-                colors.value.close
-            );
+            return config.spacingInner + indentation + colors.prop.open + key + colors.prop.close + '=' + colors.value.open + printed + colors.value.close;
         })
         .join('');
 };
 
 // Return empty string if children is empty.
-export const printChildren = (
-    children: Array<unknown>,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    printer: Printer
-): string =>
+export const printChildren = (children: Array<unknown>, config: Config, indentation: string, depth: number, refs: Refs, printer: Printer): string =>
     children
         .map(
             child =>
                 config.spacingOuter +
                 indentation +
-                (typeof child === 'string' ? printText(child, config) : printer(child, config, indentation, depth, refs))
+                (typeof child === 'string' ? printText(child, config) : printer(child, config, indentation, depth, refs)),
         )
         .join('');
 
@@ -79,13 +62,7 @@ export const printComment = (comment: string, config: Config): string => {
 // so a plugin could override a particular function, if needed.
 // Too bad, so sad: the traditional (but unnecessary) space
 // in a self-closing tagColor requires a second test of printedProps.
-export const printElement = (
-    type: string,
-    printedProps: string,
-    printedChildren: string,
-    config: Config,
-    indentation: string
-): string => {
+export const printElement = (type: string, printedProps: string, printedChildren: string, config: Config, indentation: string): string => {
     const tagColor = config.colors.tag;
     return (
         tagColor.open +

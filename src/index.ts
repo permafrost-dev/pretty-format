@@ -29,8 +29,7 @@ const regExpToString = RegExp.prototype.toString;
  * Explicitly comparing typeof constructor to function avoids undefined as name
  * when mock identity-obj-proxy returns the key as the value for any key.
  */
-const getConstructorName = (val: new (...args: Array<any>) => unknown) =>
-    (typeof val.constructor === 'function' && val.constructor.name) || 'Object';
+const getConstructorName = (val: new (...args: Array<any>) => unknown) => (typeof val.constructor === 'function' && val.constructor.name) || 'Object';
 
 /* global window */
 /** Is val is equal to global window object? Works even if it does not exist :) */
@@ -162,14 +161,7 @@ function printBasicValue(val: any, printFunctionName: boolean, escapeRegex: bool
  * Handles more complex objects ( such as objects with circular references.
  * maps and sets etc )
  */
-function printComplexValue(
-    val: any,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    hasCalledToJSON?: boolean
-): string {
+function printComplexValue(val: any, config: Config, indentation: string, depth: number, refs: Refs, hasCalledToJSON?: boolean): string {
     if (refs.indexOf(val) !== -1) {
         return '[Circular]';
     }
@@ -185,37 +177,25 @@ function printComplexValue(
 
     const toStringed = toString.call(val);
     if (toStringed === '[object Arguments]') {
-        return hitMaxDepth
-            ? '[Arguments]'
-            : (min ? '' : 'Arguments ') + '[' + printListItems(val, config, indentation, depth, refs, printer) + ']';
+        return hitMaxDepth ? '[Arguments]' : (min ? '' : 'Arguments ') + '[' + printListItems(val, config, indentation, depth, refs, printer) + ']';
     }
     if (isToStringedArrayType(toStringed)) {
         return hitMaxDepth
             ? '[' + val.constructor.name + ']'
-            : (min ? '' : val.constructor.name + ' ') +
-                  '[' +
-                  printListItems(val, config, indentation, depth, refs, printer) +
-                  ']';
+            : (min ? '' : val.constructor.name + ' ') + '[' + printListItems(val, config, indentation, depth, refs, printer) + ']';
     }
     if (toStringed === '[object Map]') {
-        return hitMaxDepth
-            ? '[Map]'
-            : 'Map {' + printIteratorEntries(val.entries(), config, indentation, depth, refs, printer, ' => ') + '}';
+        return hitMaxDepth ? '[Map]' : 'Map {' + printIteratorEntries(val.entries(), config, indentation, depth, refs, printer, ' => ') + '}';
     }
     if (toStringed === '[object Set]') {
-        return hitMaxDepth
-            ? '[Set]'
-            : 'Set {' + printIteratorValues(val.values(), config, indentation, depth, refs, printer) + '}';
+        return hitMaxDepth ? '[Set]' : 'Set {' + printIteratorValues(val.values(), config, indentation, depth, refs, printer) + '}';
     }
 
     // Avoid failure to serialize global window object in jsdom test environment.
     // For example, not even relevant if window is prop of React element.
     return hitMaxDepth || isWindow(val)
         ? '[' + getConstructorName(val) + ']'
-        : (min ? '' : getConstructorName(val) + ' ') +
-              '{' +
-              printObjectProperties(val, config, indentation, depth, refs, printer) +
-              '}';
+        : (min ? '' : getConstructorName(val) + ' ') + '{' + printObjectProperties(val, config, indentation, depth, refs, printer) + '}';
 }
 
 function isNewPlugin(plugin: Plugin): plugin is NewPlugin {
@@ -240,9 +220,9 @@ function printPlugin(plugin: Plugin, val: any, config: Config, indentation: stri
                       min: config.min,
                       spacing: config.spacingInner,
                   },
-                  config.colors
+                  config.colors,
               );
-    } catch (error) {
+    } catch (error: any) {
         throw new PrettyFormatPluginError(error.message, error.stack);
     }
     if (typeof printed !== 'string') {
@@ -257,7 +237,7 @@ function findPlugin(plugins: Plugins, val: unknown) {
             if (plugins[p].test(val)) {
                 return plugins[p];
             }
-        } catch (error) {
+        } catch (error: any) {
             throw new PrettyFormatPluginError(error.message, error.stack);
         }
     }
@@ -265,14 +245,7 @@ function findPlugin(plugins: Plugins, val: unknown) {
     return null;
 }
 
-function printer(
-    val: unknown,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    hasCalledToJSON?: boolean
-): string {
+function printer(val: unknown, config: Config, indentation: string, depth: number, refs: Refs, hasCalledToJSON?: boolean): string {
     const plugin = findPlugin(config.plugins, val);
     if (plugin !== null) {
         return printPlugin(plugin, val, config, indentation, depth, refs);
@@ -326,9 +299,7 @@ function validateOptions(options: OptionsReceived) {
         }
 
         if (typeof options.theme !== 'object') {
-            throw new Error(
-                `pretty-format: Option "theme" must be of type "object" but instead received "${typeof options.theme}".`
-            );
+            throw new Error(`pretty-format: Option "theme" must be of type "object" but instead received "${typeof options.theme}".`);
         }
     }
 }
@@ -340,9 +311,7 @@ const getColorsHighlight = (options: OptionsReceived): Colors =>
         if (color && typeof color.close === 'string' && typeof color.open === 'string') {
             colors[key] = color;
         } else {
-            throw new Error(
-                `pretty-format: Option "theme" has a key "${key}" whose value "${value}" is undefined in ansi-styles.`
-            );
+            throw new Error(`pretty-format: Option "theme" has a key "${key}" whose value "${value}" is undefined in ansi-styles.`);
         }
         return colors;
     }, Object.create(null));
@@ -356,8 +325,7 @@ const getColorsEmpty = (): Colors =>
 const getPrintFunctionName = (options?: OptionsReceived) =>
     options && options.printFunctionName !== undefined ? options.printFunctionName : DEFAULT_OPTIONS.printFunctionName;
 
-const getEscapeRegex = (options?: OptionsReceived) =>
-    options && options.escapeRegex !== undefined ? options.escapeRegex : DEFAULT_OPTIONS.escapeRegex;
+const getEscapeRegex = (options?: OptionsReceived) => (options && options.escapeRegex !== undefined ? options.escapeRegex : DEFAULT_OPTIONS.escapeRegex);
 
 const getEscapeString = (options?: OptionsReceived) =>
     options && options.escapeString !== undefined ? options.escapeString : DEFAULT_OPTIONS.escapeString;
@@ -367,10 +335,7 @@ const getConfig = (options?: OptionsReceived): Config => ({
     colors: options && options.highlight ? getColorsHighlight(options) : getColorsEmpty(),
     escapeRegex: getEscapeRegex(options),
     escapeString: getEscapeString(options),
-    indent:
-        options && options.min
-            ? ''
-            : createIndent(options && options.indent !== undefined ? options.indent : DEFAULT_OPTIONS.indent),
+    indent: options && options.min ? '' : createIndent(options && options.indent !== undefined ? options.indent : DEFAULT_OPTIONS.indent),
     maxDepth: options && options.maxDepth !== undefined ? options.maxDepth : DEFAULT_OPTIONS.maxDepth,
     min: options && options.min !== undefined ? options.min : DEFAULT_OPTIONS.min,
     plugins: options && options.plugins !== undefined ? options.plugins : DEFAULT_OPTIONS.plugins,
