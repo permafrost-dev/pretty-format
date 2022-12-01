@@ -37,4 +37,5 @@ ignore:
   - "build/"
   - ".eslintrc.js"
   - "jest.config.js"
+  - "prettier.config.js"
   - "rollup.config.js"
