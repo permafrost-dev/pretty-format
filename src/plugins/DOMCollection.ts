@@ -18,8 +18,7 @@ const ARRAY_REGEXP = /^(HTML\w*Collection|NodeList)$/;
 
 const testName = (name: any) => OBJECT_NAMES.indexOf(name) !== -1 || ARRAY_REGEXP.test(name);
 
-export const test: NewPlugin['test'] = (val: object) =>
-    val && val.constructor && !!val.constructor.name && testName(val.constructor.name);
+export const test: NewPlugin['test'] = (val: object) => val && val.constructor && !!val.constructor.name && testName(val.constructor.name);
 
 const isNamedNodeMap = (collection: object): collection is NamedNodeMap => collection.constructor.name === 'NamedNodeMap';
 
@@ -29,7 +28,7 @@ export const serialize: NewPlugin['serialize'] = (
     indentation: string,
     depth: number,
     refs: Refs,
-    printer: Printer
+    printer: Printer,
 ) => {
     const name = collection.constructor.name;
     if (++depth > config.maxDepth) {
@@ -51,7 +50,7 @@ export const serialize: NewPlugin['serialize'] = (
                   indentation,
                   depth,
                   refs,
-                  printer
+                  printer,
               ) +
               '}'
             : '[' + printListItems(Array.from(collection), config, indentation, depth, refs, printer) + ']')

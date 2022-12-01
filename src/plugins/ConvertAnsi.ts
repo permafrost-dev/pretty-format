@@ -58,14 +58,8 @@ const toHumanReadableAnsi = (text: string) =>
 
 export const test: NewPlugin['test'] = (val: unknown) => typeof val === 'string' && !!val.match(ansiRegex());
 
-export const serialize: NewPlugin['serialize'] = (
-    val: string,
-    config: Config,
-    indentation: string,
-    depth: number,
-    refs: Refs,
-    printer: Printer
-) => printer(toHumanReadableAnsi(val), config, indentation, depth, refs);
+export const serialize: NewPlugin['serialize'] = (val: string, config: Config, indentation: string, depth: number, refs: Refs, printer: Printer) =>
+    printer(toHumanReadableAnsi(val), config, indentation, depth, refs);
 
 const plugin: NewPlugin = { serialize, test };
 
