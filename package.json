@@ -30,8 +30,10 @@
         "test": "./node_modules/.bin/jest tests --verbose",
         "test:coverage": "./node_modules/.bin/jest tests --coverage",
         "build": "npm run build:prod && npm run build:dts",
-        "build:prod": "rollup --config rollup.config.js --bundleConfigAsCjs --no-treeshake",
-        "build:dts": "dts-bundle-generator -o ./dist/index.d.ts ./src/types.ts"
+        "build:prod": "rollup --config rollup.config.js --bundleConfigAsCjs ",
+        "build:dts": "dts-bundle-generator -o ./dist/index.d.ts ./src/types.ts",
+        "preversion": "npm run test",
+        "postversion": "npm run build:prod && npm run build:dts"
     },
     "dependencies": {
         "ansi-regex": "^4.0",
