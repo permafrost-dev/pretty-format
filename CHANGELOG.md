@@ -4,6 +4,14 @@ All notable changes to `permafrost-dev/prettier-format` will be documented in th
 
 ---
 
+## 1.1.3 - 2022-12-16
+
+- fix build again
+
+## 1.1.2 - 2022-12-16
+
+- fix broken build
+
 ## 1.1.1 - 2022-12-01
 
 - bump dependency versions
