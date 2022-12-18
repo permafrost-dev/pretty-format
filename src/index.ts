@@ -6,7 +6,7 @@
  */
 
 /* eslint-disable @typescript-eslint/ban-types */
-/* esline-disable no-undef */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-prototype-builtins */
 
@@ -15,10 +15,10 @@ import ConvertAnsi from './plugins/ConvertAnsi';
 import DOMCollection from './plugins/DOMCollection';
 import DOMElement from './plugins/DOMElement';
 import type { Colors, Config, NewPlugin, Options, OptionsReceived, Plugin, Plugins, Refs, Theme } from './types';
+import style from 'ansi-styles';
 
 export type { Colors, Config, Options, OptionsReceived, OldPlugin, NewPlugin, Plugin, Plugins, Refs, Theme } from './types';
 
-const style = require('ansi-styles');
 
 const toString = Object.prototype.toString;
 const toISOString = Date.prototype.toISOString;

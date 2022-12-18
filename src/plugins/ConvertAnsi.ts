@@ -5,8 +5,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const ansiRegex = require('ansi-regex');
-const style = require('ansi-styles');
+import ansiRegex from 'ansi-regex';
+import style from 'ansi-styles';
 import type { Config, NewPlugin, Printer, Refs } from '../types';
 
 const toHumanReadableAnsi = (text: string) =>
