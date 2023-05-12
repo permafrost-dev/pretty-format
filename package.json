@@ -34,7 +34,7 @@
         "build:dts": "dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts",
         "preversion": "npm run test",
         "postversion": "npm run build:prod && npm run build:dts",
-        "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md",
+        "version": "auto-changelog -p -o CHANGELOG.md --hide-credit --release-summary --hide-empty-releases --sort-commits date-desc && git add CHANGELOG.md"
     },
     "dependencies": {
         "ansi-regex": "^6.0",
