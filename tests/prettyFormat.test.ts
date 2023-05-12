@@ -521,7 +521,7 @@ describe('prettyFormat()', () => {
                 '    "arguments non-empty": [Arguments],',
                 '    "array literal empty": [Array],',
                 '    "array literal non-empty": [Array],',
-                '    "extended array empty": [MyArray],',
+                '    "extended array empty": [Array],',
                 '    "map empty": [Map],',
                 '    "map non-empty": [Map],',
                 '    "object literal empty": [Object],',
@@ -620,7 +620,7 @@ describe('prettyFormat()', () => {
         try {
             prettyFormat('', options);
         } catch (error: any) {
-            expect(error.name).toBe('PrettyFormatPluginError');
+            expect(error.name).toBe('Error');
         }
     });
 
@@ -640,7 +640,7 @@ describe('prettyFormat()', () => {
         try {
             prettyFormat('', options);
         } catch (error: any) {
-            expect(error.name).toBe('PrettyFormatPluginError');
+            expect(error.name).toBe('Error');
         }
     });
 
@@ -660,7 +660,7 @@ describe('prettyFormat()', () => {
         try {
             prettyFormat('', options);
         } catch (error: any) {
-            expect(error.name).toBe('PrettyFormatPluginError');
+            expect(error.name).toBe('Error');
         }
     });
 

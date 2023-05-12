@@ -16,9 +16,9 @@ const outputs = {
             plugins: [],
         },
         {
-            file: 'dist/index.esm.mjs',
+            file: 'dist/index.esm.js',
             format: 'esm',
-            exports: 'named',
+            exports: 'auto',
             sourcemap: options.sourceMapsEnabled,
             plugins: [],
         },

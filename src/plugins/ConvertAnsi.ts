@@ -5,9 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import ansiRegex from 'ansi-regex';
+import * as ansiRegexNs from 'ansi-regex';
 import style from 'ansi-styles';
 import type { Config, NewPlugin, Printer, Refs } from '../types';
+
+const ansiRegex = ansiRegexNs.default;
 
 const toHumanReadableAnsi = (text: string) =>
     text.replace(ansiRegex(), match => {
