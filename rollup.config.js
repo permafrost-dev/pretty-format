@@ -36,7 +36,7 @@ export default {
             },
             preventAssignment: true,
         }),
-        // commonjs(),
+        commonjs(),
         typescript(),
     ],
     external: ['ansi-regex', 'ansi-styles'],
