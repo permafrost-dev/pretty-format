@@ -11,9 +11,9 @@ const buildConfigs = [
         bundle: true,
         constants: {},
         entry: 'src/index.ts',
-        format: 'esm',
+        format: 'cjs',
         minify: false,
-        outfile: 'dist/index.esm.mjs',
+        outfile: 'dist/index.cjs.js',
         platform: {
             name: 'browser',
             version: 14,
@@ -25,8 +25,8 @@ const buildConfigs = [
         constants: {},
         entry: 'src/index.ts',
         format: 'esm',
-        minify: true,
-        outfile: 'dist/index.esm.min.mjs',
+        minify: false,
+        outfile: 'dist/index.esm.mjs',
         platform: {
             name: 'browser',
             version: 14,
